@@ -74,6 +74,7 @@ dependencies {
     implementation(libs.retrofit.adapter.rxjava)
 
     implementation(libs.navigation.compose)
+
     implementation(libs.image.gilde)
     implementation(libs.material.icons)
 
@@ -82,6 +83,7 @@ dependencies {
     androidTestImplementation(libs.androidx.espresso.core)
     androidTestImplementation(platform(libs.androidx.compose.bom))
     androidTestImplementation(libs.androidx.ui.test.junit4)
+    androidTestImplementation(libs.navigation.test)
     debugImplementation(libs.androidx.ui.tooling)
     debugImplementation(libs.androidx.ui.test.manifest)
 }

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <domain-config>
+        <domain includeSubdomains="true">upload.video.google.com</domain>
+        <pin-set>
+            <!-- Pin for the SSL/TLS certificate of example.com -->
+            <pin digest="SHA-256">BRDdZZl160CWA68sZNJM6+kn+l/N9JW9WgQ0yAPCktc=</pin>
+            <!-- Backup Pin for the SSL/TLS certificate of example.com -->
+            <pin digest="SHA-256">YPtHaftLw6/0vnc2BnNKGF54xiCA28WFcccjkA4ypCM=</pin>
+        </pin-set>
+    </domain-config>
+</network-security-config>

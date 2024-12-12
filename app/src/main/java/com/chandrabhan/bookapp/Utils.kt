@@ -3,7 +3,6 @@ package com.chandrabhan.bookapp
 import android.app.Activity
 import android.content.Context
 import android.content.ContextWrapper
-import android.content.pm.ActivityInfo
 import android.content.res.Configuration
 import android.util.Log
 import androidx.compose.foundation.background
@@ -17,7 +16,6 @@ import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.rounded.StarHalf
 import androidx.compose.material.icons.rounded.Star
-import androidx.compose.material.icons.rounded.StarHalf
 import androidx.compose.material.icons.rounded.StarOutline
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Icon
@@ -39,19 +37,16 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.compose.ui.window.Popup
 import androidx.compose.ui.window.PopupProperties
-import androidx.lifecycle.viewmodel.compose.viewModel
 import androidx.navigation.NavHostController
 import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import androidx.navigation.compose.rememberNavController
 import androidx.navigation.navArgument
 import com.chandrabhan.bookapp.ui.BookDetails
 import com.chandrabhan.bookapp.ui.BookHomeScreen
 import com.chandrabhan.bookapp.ui.BookList
 import com.chandrabhan.bookapp.ui.theme.Shapes
 import com.chandrabhan.bookapp.ui.theme.StarColor
-import com.chandrabhan.bookapp.viewmodel.BookViewModel
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -68,11 +63,10 @@ fun AppBar(title: String) {
 }
 
 @Composable
-fun BookApplication() {
-    val navController = rememberNavController()
-    NavHost(navController = navController, startDestination = "search_screen") {
+fun BookApplication(navHostController: NavHostController) {
+    NavHost(navController = navHostController, startDestination = "search_screen") {
         composable(route = "search_screen") {
-            BookHomeScreen(navController)
+            BookHomeScreen(navHostController)
         }
         composable(
             route = "book_list/{bookName}/{author}",
@@ -84,7 +78,7 @@ fun BookApplication() {
             val author = backStackEntry.arguments?.getString("author")
             //  val viewModel : BookViewModel = viewModel()
             BookList(bookName.toString(), author.toString()){bookId->
-                navController.navigate("book_details/$bookId")
+                navHostController.navigate("book_details/$bookId")
             }
         }
         composable(route = "book_details/{book_id}",

@@ -11,7 +11,7 @@ composeBom = "2024.04.01"
 
 livedata = "1.7.5"
 coil = "2.4.0"
-navVersion = "2.8.3"
+navVersion = "2.8.4"
 viewModel = "2.6.1"
 gsonRetrofit = "2.11.0"
 gilde = "1.0.0-beta01"
@@ -43,6 +43,7 @@ androidx-runtime = { group = "androidx.compose.runtime", name = "runtime", versi
 androidx-lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycleRuntimeKtx" }
 compose-viewmodel = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-compose", version.ref = "viewModel" }
 navigation-compose = { group = "androidx.navigation", name = "navigation-compose", version.ref = "navVersion" }
+navigation-test = { group = "androidx.navigation", name = "navigation-testing", version.ref = "navVersion" }
 
 # Retrofit
 
